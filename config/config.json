@@ -1,0 +1,20 @@
+{
+  "mush_config": {
+    "base_model": {
+      "id": 1908401568,
+      "description": "Base Model with Audio",
+      "fields": [
+        {"name": "Spanish"},
+        {"name": "English"},
+        {"name": "Audio"}
+      ],
+      "templates": [
+        {
+          "name": "Card1",
+          "qfmt": "{{Spanish}}<br>{{Audio}}",
+          "afmt": "{{FrontSide<hr id=\"answer\">{{English}}"
+        }
+      ]
+    }
+  }
+}

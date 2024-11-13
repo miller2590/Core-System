@@ -1,5 +1,5 @@
 
-data_longer = {
+data_1 = {
     "Spanish Phrase": [
         "Iba a ir allí, pero cambié de opinión en el último momento.",
         "Voy a ir allí mañana temprano para ver el amanecer.",
@@ -107,5 +107,3 @@ data_longer = {
         "I would be about to leave if I weren’t waiting for someone."
     ]
 }
-
-
