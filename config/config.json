@@ -12,7 +12,7 @@
         {
           "name": "Card1",
           "qfmt": "{{Spanish}}<br>{{Audio}}",
-          "afmt": "{{FrontSide<hr id=\"answer\">{{English}}"
+          "afmt": "{{FrontSide}}<hr id=\"answer\">{{English}}"
         }
       ]
     }
