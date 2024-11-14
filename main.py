@@ -1,15 +1,16 @@
 import json
 import os
 from mush_machine.anki_generator import AnkiGenerator
-from utils.data_2 import data_2
+from utils.data_1 import data_1
 from utils.logger import Logger
 
 logger = Logger.get_logger(name=__name__)
 
+
 class Main:
     def __init__(self):
         self.config = self.get_config()
-        self.data = data_2
+        self.data = data_1
 
     @staticmethod
     def get_config():
@@ -21,7 +22,7 @@ class Main:
                 logger.warning("No config found")
 
     def run(self):
-        anki_generator = AnkiGenerator(deck_name="Spanish Two", data=self.data)
+        anki_generator = AnkiGenerator(deck_name="Spanish One", data=self.data)
         anki_generator.model_config = self.config["mush_config"]["base_model"]
         anki_generator.create_deck()
         anki_generator.create_model()
