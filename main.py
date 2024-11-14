@@ -2,7 +2,9 @@ import json
 import os
 from mush_machine.anki_generator import AnkiGenerator
 from utils.data_2 import data_2
+from utils.logger import Logger
 
+logger = Logger.get_logger(name=__name__)
 
 class Main:
     def __init__(self):
@@ -25,7 +27,7 @@ class Main:
         anki_generator.create_model()
         anki_generator.create_note()
         anki_generator.create_package()
-        print(f"Anki package created successfully")
+        logger.info("Anki package created successfully")
 
 
 if __name__ == "__main__":
