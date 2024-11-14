@@ -6,6 +6,7 @@ from utils.logger import Logger
 
 logger = Logger.get_logger(name=__name__)
 
+
 class AnkiGenerator:
     def __init__(self, deck_name, data):
         self.deck_name = deck_name
@@ -51,7 +52,7 @@ class AnkiGenerator:
                 zip(self.data["Spanish Phrase"], self.data["English Translation"])):
             self.note = genanki.Note(
                 model=self.model,
-                fields=[target_language, native_language, f'[sound:translation_{i}.mp3]']
+                fields=[native_language, target_language,  f'[sound:translation_{i}.mp3]']
             )
             self.deck.add_note(self.note)
 
