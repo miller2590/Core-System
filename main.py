@@ -18,7 +18,7 @@ class Main:
             if config_file:
                 return json.load(config_file)
             else:
-                print("No config found")
+                logger.warning("No config found")
 
     def run(self):
         anki_generator = AnkiGenerator(deck_name="Spanish Two", data=self.data)
