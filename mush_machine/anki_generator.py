@@ -2,7 +2,9 @@ import genanki
 from gtts import gTTS
 import uuid
 import os
+from utils.logger import Logger
 
+logger = Logger.get_logger(name=__name__)
 
 class AnkiGenerator:
     def __init__(self, deck_name, data):
@@ -16,6 +18,7 @@ class AnkiGenerator:
 
     def generate_audio_file(self):
         audio_dir = f'anki_{self.deck_name}_audio'
+        logger.info(f"About to create {audio_dir} directory")
         os.makedirs(name=audio_dir, exist_ok=True)
 
         audio_files = []
@@ -27,12 +30,14 @@ class AnkiGenerator:
         return audio_files
 
     def create_deck(self):
+        logger.info(f"About to create {self.deck_name} anki deck")
         self.deck = genanki.Deck(
             int(uuid.uuid4().int & (1 << 31) - 1),
             self.deck_name
         )
 
     def create_model(self):
+        logger.info(f"Using {self.model_config['description']}")
         self.model = genanki.Model(
             self.model_config["id"],
             self.model_config["description"],
@@ -41,6 +46,7 @@ class AnkiGenerator:
         )
 
     def create_note(self):
+        logger.info("About to create anki Notes")
         for i, (target_language, native_language) in enumerate(
                 zip(self.data["Spanish Phrase"], self.data["English Translation"])):
             self.note = genanki.Note(
@@ -50,6 +56,7 @@ class AnkiGenerator:
             self.deck.add_note(self.note)
 
     def create_package(self):
+        logger.info("About to create .apkg package")
         audio_files = self.generate_audio_file()
         package = genanki.Package(self.deck)
         package.media_files = audio_files
